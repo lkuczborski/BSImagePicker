@@ -37,8 +37,14 @@ extension UIButton {
         titleLabel.sizeToFit()
 
         // Adjust insets to right align image
-        titleEdgeInsets = UIEdgeInsets(top: 0, left: -imageView.bounds.size.width, bottom: 0, right: imageView.bounds.size.width)
-        imageEdgeInsets = UIEdgeInsets(top: 0, left: titleLabel.bounds.size.width + 12, bottom: 0, right: -(titleLabel.bounds.size.width + 12))
+        if #available(iOS 9.0, *) {
+            semanticContentAttribute = .forceRightToLeft
+            titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 4)
+        } else {
+            titleEdgeInsets = UIEdgeInsets(top: 0, left: -imageView.bounds.size.width, bottom: 0, right: imageView.bounds.size.width)
+            imageEdgeInsets = UIEdgeInsets(top: 0, left: titleLabel.bounds.size.width + 12, bottom: 0, right: -(titleLabel.bounds.size.width + 12))
+        }
+
     }
     
     private var arrowDownImage: UIImage? {
