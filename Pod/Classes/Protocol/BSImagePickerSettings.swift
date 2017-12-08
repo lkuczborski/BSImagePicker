@@ -27,6 +27,11 @@ BSImagePicker settings. Tweaks these to make BSImagePicker fit your needs
 */
 public protocol BSImagePickerSettings {
     /**
+     Min number of images user must select
+     */
+    var minNumberOfSelections: Int { get set }
+    
+    /**
     Max number of images user can select
     */
     var maxNumberOfSelections: Int { get set }
@@ -54,7 +59,7 @@ public protocol BSImagePickerSettings {
     /**
     Attributes for text inside circle. Color, font, etc
     */
-    var selectionTextAttributes: [String: AnyObject] { get set }
+    var selectionTextAttributes: [NSAttributedStringKey: AnyObject] { get set }
     
     /**
      BackgroundColor

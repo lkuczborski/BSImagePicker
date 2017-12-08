@@ -26,19 +26,20 @@ import UIKit
 The settings object that gets passed around between classes for keeping...settings
 */
 final class Settings : BSImagePickerSettings {
+    var minNumberOfSelections: Int = 1
     var maxNumberOfSelections: Int = Int.max
     var selectionCharacter: Character? = nil
     var selectionFillColor: UIColor = UIView().tintColor
     var selectionStrokeColor: UIColor = UIColor.white
     var selectionShadowColor: UIColor = UIColor.black
-    var selectionTextAttributes: [String: AnyObject] = {
+    var selectionTextAttributes: [NSAttributedStringKey: AnyObject] = {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = .byTruncatingTail
         paragraphStyle.alignment = .center
         return [
-            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 10.0),
-            NSParagraphStyleAttributeName: paragraphStyle,
-            NSForegroundColorAttributeName: UIColor.white
+            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10.0),
+            NSAttributedStringKey.paragraphStyle: paragraphStyle,
+            NSAttributedStringKey.foregroundColor: UIColor.white
         ]
     }()
     var backgroundColor: UIColor = UIColor.white
