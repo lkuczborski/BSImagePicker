@@ -134,18 +134,7 @@ class ViewController: UIViewController {
         }, completion: nil)
     }
     
-    @IBAction func showImagePickerWithMinimalSelection(_ sender: UIButton) {
-        let allAssets = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: nil)
-        var evenAssetIds = [String]()
-        
-        allAssets.enumerateObjects({ (asset, idx, stop) -> Void in
-            if idx % 2 == 0 {
-                evenAssetIds.append(asset.localIdentifier)
-            }
-        })
-        
-        let evenAssets = PHAsset.fetchAssets(withLocalIdentifiers: evenAssetIds, options: nil)
-        
+    @IBAction func showImagePickerWithMinimalSelection(_ sender: UIButton) {        
         let vc = BSImagePickerViewController()
         vc.minNumberOfSelections = 2
         
